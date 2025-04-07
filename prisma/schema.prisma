@@ -21,9 +21,17 @@ model Post {
   updatedAt DateTime @updatedAt
   title     String   @db.VarChar(255)
   content   String?
-  published Boolean  @default(false)
   author    User     @relation(fields: [authorId], references: [id])
   authorId  Int
+  status    Status   @default(Unknown)
+}
+
+enum Status {
+  Unknown
+  Draft
+  InProgress
+  InReview
+  Published
 }
 
 model Profile {
@@ -40,3 +48,4 @@ model User {
   posts   Post[]
   profile Profile?
 }
+

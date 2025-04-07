@@ -1,5 +1,5 @@
 import { PrismaClient, Prisma } from './generated/prisma';
-import { getUsersAndPosts } from './generated/prisma/sql/getUsersAndPosts';
+import { getUsersAndPosts } from './generated/prisma/sql';
 
 const prisma = new PrismaClient();
 
@@ -18,10 +18,9 @@ async function main() {
   // There is also just updateMany
   const update = await prisma.post.updateManyAndReturn({
     where: {
-      title: 'Hello my Afrcian Fellas',
       author: { email: { contains: 'nico' } },
     },
-    data: { title: 'Hello my Niggas' },
+    data: { title: 'Hello my African people' },
   });
   console.log(update);
 

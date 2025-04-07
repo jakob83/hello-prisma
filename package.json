@@ -4,7 +4,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "data-migration:add-status-column": "npx tsx ./prisma/migrations/20250407124858_add_status_column/data-migration.ts"
   },
   "keywords": [],
   "author": "",
